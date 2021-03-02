@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Loops Simulator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/loop_sim.css">
+  </link>
+</head>
+
+<body>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>
+        <div id="inst">
+          <ul>
+            <li>Select any one type of loop from the dropdown</li>
+            <li>Then Click The Execute Button to load the source code and algorithm</li>
+            <li>Click the next instruction button to understand line by line execution of program</li>
+            <li>Enter The Number</li>
+            <li>You may click reset button to restart the simulator</li>
+            <li>Click the program task button to load the task</li>
+            <li>Click the result button to get the result</li>
+            <li>Click the show answer button to check your answers</li>
+          </ul>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div id="border-curve" style="display: table;width: 100%;">
+    <div id="head" style="display: table-row;">
+      <div style="display: table-cell;width: 70%;">
+        <p style="font-size:30px!important;">Looping</p>
+      </div>
+      <div style="display: table-cell;width: 30%;font-size: 20px;">
+        <a id="ins">Instructions</a>
+        <div id="sm"><span class="tooltiptext">
+            <p id="r" style="font-size: 15px;">Instructions</p>
+          </span>i</div>
+      </div>
+    </div>
+  </div>
+  <div id="border-curve" style="display: table;width: 100%;">
+    <div id="head1" style="display: table-row;">
+      <div style="display: table-cell;">
+        <p>Loops</p>
+      </div>
+    </div>
+  </div>
+  <div style="display: table;width: 100%;">
+    <div style="display: table-row;">
+      <div class="drop_menu" style="display: table-cell;width:50%;">
+        <form>
+          <label>Loops</label><br>
+          <select id="operation" style="width:100%;">
+            <option value="">Select</option>
+            <option value="0">for</option>
+            <option value="1">for acting as while</option>
+            <option value="2">nesting of loops</option>
+          </select>
+          <input type="button" onclick="datainput()" value="Execute" id="btn3">
+          <input type="button" value="Reset" id="btn2">
+          <img src="./images/loop.png" style="position:relative;left:30%;display:none;height: 60%;width: 50%;" id="flow1">
+          
+          <img src="./images/while.png" style="position:relative;left:30%;display:none;height: 60%;width: 50%;box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+          0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;border-radius: 20px;" id="flow2">
+        </form>
+      </div>
+      <div class="drop_menu" style="display: table-cell;width:50%;">
+        <div id="pic1" style="display: none;">
+          <p>Algorithms</p>
+          <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                  0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+            <i>For Loop:-<br><br>
+              Step 1: Start<br><br>
+              Step 2: Declare variable sum,i,n.<br><br>
+              Step 3: Initialize variable sum to 0.<br><br>
+              Step 4: Read variable n.<br><br>
+              Step 5: Repeat the body of loop till the condition becomes false.<br><br>
+              Step 6:Print value of sum.<br><br>
+              Step 7:End.<br><br>
+            </i>
+          </p>
+        </div>
+        <div id="pic2" style="display:none;">
+          <p>Algorithms</p>
+          <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+            <i>While Loop:-<br><br>
+              Step 1: Start<br><br>
+              Step 2: Declare variable sum,i,n.<br><br>
+              Step 3: Initialize variable sum,i to 0.<br><br>
+              Step 4: Read variable n.<br><br>
+              Step 4: If a&lt20<br><br>
+              Step 5: Repeat the body of loop till the condition becomes false.<br><br>
+              Step 6:Print value of sum.<br><br>
+              Step 5:End.<br><br>
+            </i>
+          </p>
+        </div>
+        <div id="pic3" style="display:none;">
+          <p>Algorithms</p>
+          <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                  0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+            <i>Nesting Loops:-<br><br>
+              Step 1: Start<br><br>
+              Step 2: Declare variables i,j.<br><br>
+              Step 3: Read variables i,j.<br><br>
+              Step 4: * will be printed j times then line is changed then again j times this will continued till i times hence total * will be i*j<br><br>
+              Step 5:End.
+            </i>
+            </i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="head1" style="display: table-row;">
+      <div id="border-curve" style="display: table-cell;width: 50%;border-right: 1px solid black;">
+        <p>Source Code</p>
+      </div>
+      <div id="border-curve" style="display: table-cell;width:50%;border-left: 1px solid black;">
+        <p>Output</p>
+      </div>
+    </div>
+    <div style="display: table-row;">
+      <div class="drop_menu" style="display: table-cell;width: 50%;height:500px;border-right: 1px solid black;">
+        <div id="demo">
+        </div>
+        <div class="drop_menu">
+          <input type="button" value="Next Instruction" id="btn1" style="display:none;">
+        </div>
+      </div>
+
+      <div class="drop_menu" style="display: table-cell;width:50%;height:500px;border-left: 1px solid black;">
+        <div style="position: relative;width:100%;">
+          <table id="tbl" style="position: absolute;display: block;width:100%;">
+            <tbody style="display:block;">
+              <tr>
+                <td colspan="2">
+                  <span style="position: relative;">
+                    <b id="r4c1" style="position:relative;display:none;color:black;">
+                      <b id="change1" style="display: inline-block;">sum</b>
+                    </b>
+                    <b id="r4c2" style="display: inline-block;">
+                      <div class="hiddenBox" id="b1"></div>
+                    </b>
+                    <b id="r4c8" style="display:none;color:black;">
+                      <b id="m1"></b>
+                    </b>
+                  </span>
+                  <span style="position:relative;left:10%;">
+                    <b id="r4c3" style="display:none;color:black;">
+                      <b id="change2" style="display: inline-block;">i</b>
+                    </b>
+                    <b id="r4c4" style="display: inline-block;">
+                      <div class="hiddenBox" id="b2"></div>
+                    </b>
+                    <b id="r4c9" style="display:none;color:black;">
+                      <b id="m2"></b>
+                    </b>
+                  </span>
+                  <span style="position:relative;left:20%;">
+                    <b id="r4c5" style="display:none;color:black;">
+                      <b style="display: inline-block;">n</b>
+                    </b>
+                    <b id="r4c6" style="display: inline-block;">
+                      <div class="hiddenBox" id="b3"></div>
+                    </b>
+                    <b id="r4c7" style="display:none;color:black;">
+                      <b id="m3"></b>
+                    </b>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td id="fn1" style="display:none;">Enter The Value Of n : </td>
+                <td id="r1c1" style="display:none;color:black;"><input type="text" id="first"
+                    placeholder="Enter The First Number"></td>
+              </tr>
+              <tr>
+                <td id="r3c1" style="display:none;color:black;width:50%;">Output : </td>
+                <td id="r3c5" style="color:black;display:block;width:50%;"></td><br>
+              </tr>
+              <tr>
+                <td colspan="2"><a href="#container5" id="test"
+                    style="text-align:center;display:none;padding:10px;border:5px solid rgb(245, 22, 6);width:25%;position:relative;left:41%;">Program
+                    Task</a></td>
+              </tr>
+            </tbody>
+            
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div id="container5" style="position:absolute;display:none;width:100%;margin:auto;padding:10px;">
+    <div style="padding:10px;margin:auto;width:100%;position:relative;border:5px solid #CD5C5C;box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+      0 6px 20px 0 rgba(7, 135, 240, 0.37);border-radius: 10px;overflow:auto;">
+      <span id="container11"
+        style="width:100%;display:none;background-color:white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Complete The Blanks using syntax Of Go Programming Language and print sum of first 5 odd natural numbers : </p>
+          package main<br><br>
+          import("fmt")<br><br>
+          func main<br><br>
+          var i int<br><br>
+          var sum int=0<br><br>
+          for&nbsp;<input type="text" id="a111" class="textField" size="3">{&nbsp&nbsp&nbsp<b id="sh1"></b><br><br>
+          sum+=2*i+1<br><br>
+          }<br><br>
+          fmt.Print("The Sum Of first 5 odd natural numbers is : ",sum)<br><br>
+          }<br><br>
+          <input type="button" value="Next" class="btn" id="btn11">
+
+        </form>
+      </span>
+      <span id="container22"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Complete The Blanks using syntax Of Go Programming Language and print factorial of 5 : </p>
+
+          package main<br><br>
+          import("fmt")<br><br>
+          func main(){<br><br>
+          var i int<br><br>
+          var f int=1<br><br>
+          n=<input type="text" id="b11" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh2"></b><br><br>
+          for&nbsp;i=1;i<=5;i++<br><br>
+          <input type="text" id="b22" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh3"></b><br><br>
+          fmt.Print("Factorial Of 5 is : ",f)<br><br>
+          }<br><br><input type="button" value="Next" class="btn" id="btn22">
+        </form>
+      </span>
+      <span id="container33"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+
+          <p>Complete The Blanks using syntax Of Go Programming Language and print the following pattern : <br>*<br>**<br>***</p>
+
+          package main<br><br>
+          import("fmt")<br><br>
+          func main(){<br><br>
+          var i,j int=20<br><br>
+          for&nbsp;i=1;i<=3;i++{<br><br>
+          for&nbsp;<input type="text" id="c11" class="textField" size="3">{&nbsp&nbsp&nbsp<b id="sh4"></b><br><br>
+          <input type="text" id="c22" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh5"></b><br><br>
+          }<br><br>
+          fmt.Println()<br><br>
+          }<br><br>
+          }<br><br><input type="button" value="Next" class="btn" id="btn33">
+        </form>
+      </span>
+      <span id="container44"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Fill the blanks of the given GO Program  and print sum of first 5 even numbers : </p>
+
+          package main<br><br>
+          import ("fmt")<br><br>
+          func main(){<br><br>
+          var sum,k int=0,0<br><br>
+          <input type="text" id="d11" class="textField" size="2">&nbsp;k&lt;5{&nbsp&nbsp&nbsp<b id="sh6"></b><br><br>
+          <input type="text" id="d22" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh7"></b><br><br>
+          k++<br><br>
+          }<br><br>
+          fmt.Print("Sum Of first 5 Even Numbers Is : ",sum)<br><br>
+          }<br><br>
+          <input type="button" value="Next" class="btn" id="btn44">
+        </form>
+      </span>
+
+      <span id="container55"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Compute the output and fill the blanks of the given GO Program and print the following pattern : <br>1<br>12<br>123</p>
+
+          package main<br><br>
+          import ("fmt")<br><br>
+          func main(){<br><br>
+          var i,j int<br><br>
+          for&nbsp;i=1;i<=3;i++{<br><br>
+          for&nbsp;<input type="text" id="e11" class="textField" size="3">{&nbsp&nbsp&nbsp<b id="sh8"></b><br><br>
+          <input type="text" id="e22" class="textField" size="2">}&nbsp&nbsp&nbsp<b id="sh9"></b><br><br>
+          fmt.Println()<br><br>
+          }<br><br>
+          }<br><br>
+          <input type="button" value="Next" class="btn" id="btn55">
+        </form>
+      </span>
+
+      <span id="container66"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Compute the output and fill the blanks of the given GO Program and print table of 9 upto 10 </p>
+          package main<br><br>
+          import ("fmt")<br><br>
+          func main(){<br><br>
+          var i int<br><br>
+          var n int=9<br><br>
+          for&nbsp;<input type="text" id="f11" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh10"></b><br><br>
+          fmt.Println(i*n)<br><br>
+          }<br><br>
+
+          <input type="button" value="Next" class="btn" id="btn66">
+        </form>
+      </span>
+      <span id="container88"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Identify The Errors And Check The Wrong Ones : </p>
+          <input type="checkbox" id="cb1"> package main&nbsp&nbsp&nbsp<b id="sh12"></b><br><br>
+          <input type="checkbox" id="cb2" value="e"> import("Fmt")&nbsp&nbsp&nbsp<b id="sh13"></b><br><br>
+          <input type="checkbox" id="cb3"> func main(){&nbsp&nbsp&nbsp<b id="sh14"></b><br><br>
+          <input type="checkbox" id="cb4" value="e">var sum,i Int=0,1&nbsp&nbsp&nbsp<b id="sh15"></b><br><br>
+          <input type="checkbox" id="cb5" value="e"> For i=1;i<=5;i++<b id="sh16"></b><br><br>
+          <input type="checkbox" id="cb6"> sum=sum+i&nbsp&nbsp&nbsp<b id="sh17"></b><br><br>
+          <input type="checkbox" id="cb7"> &nbsp&nbsp&nbspfmt.Print("The Sum is : ",sum)}&nbsp&nbsp&nbsp<b id="sh18"></b><br><br>
+          <input type="button" value="Next" class="btn" id="btn88">
+        </form>
+      </span>
+      <span id="container99"
+        style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+        <form style="margin:auto;">
+          <p>Identify The Errors And Check The Wrong Ones :</p>
+          <input type="checkbox" id="cb8"> package main&nbsp&nbsp&nbsp<b id="sh19"></b><br><br>
+          <input type="checkbox" id="cb9"> import("fmt")&nbsp&nbsp&nbsp<b id="sh20"></b><br><br>
+          <input type="checkbox" id="cb10" value="e"> func Main(){&nbsp&nbsp&nbsp<b id="sh21"></b><br><br>
+          <input type="checkbox" id="cb11" value="e"> var int n&nbsp&nbsp&nbsp<b id="sh22"></b><br><br>
+          <input type="checkbox" id="cb12" value="e"> for i=1;i=i+2;i<=10&nbsp&nbsp&nbsp<b id="sh23"></b><br><br>
+          <input type="checkbox" id="cb13">sum=sum+i&nbsp&nbsp&nbsp<b id="sh24"></b><br><br>
+          <input type="checkbox" id="cb14" avlue="e">&nbsp&nbsp&nbspfmt.print("Sum is : ",sum)&nbsp&nbsp&nbsp<b id="sh25"></b><br><br>
+          <input type="checkbox" id="cb15"> }&nbsp&nbsp&nbsp<b id="sh26"></b><br><br>
+          <input type="button" value="Next" class="btn" id="btn99">
+        </form>
+      </span>
+
+      <span id="container77"
+        style="width:100%;height:100%;display:none;background-color:  #ffffff;padding:20px;margin:auto;position:relative;height:560px;">
+        <div
+          style="position:relative;width:100%;height:100%;margin:auto;background-color: rgb(252, 252, 252);padding:100px 0;">
+          <form style="position:relative;margin:auto;padding:30px;"><input type="button" value="Result" onclick="cal()"
+              id="resul" style="display:inline-block;position: relative;margin:auto;left:47%;">
+            <input type="button" value="Reset" onclick="rel()"
+              style="display:none;position: relative;margin:auto;left:47%;" id="res"></form>
+          <div
+            style="overflow:auto;background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);left:0px;margin:auto;position:relative;height:230px;"
+            id="ans" class="hiddenBox1">
+            <p id="corr" style="color:green"></p>
+            <p id="incorr" style="color:red"></p>
+            <p id="percentage" style="color:rgb(240, 6, 240)"></p>
+            <p id="feedback"></p>
+            <form><input type="button" value="Show Answers" id="show" class="btn"
+                style="display:none;position:relative;left:25px;"></form>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  <script src="./js/loop_sim.js"></script>
+</body>
+
+</html>

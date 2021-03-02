@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Arrays Simulator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/array_sim.css">
+  </link>
+  <link rel="stylesheet" href="./css/task.css">
+  </link>
+</head>
+
+<body>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>
+        <div id="inst">
+          <ul>
+            <li>Select any one type of array from the dropdown</li>
+            <li>Then Click The Execute Button to load the source code and algorithm</li>
+            <li>Click the next instruction button to understand line by line execution of program</li>
+            <li>Enter The Number</li>
+            <li>You may click reset button to restart the simulator</li>
+            <li>Click the program task button to load the task</li>
+            <li>Click the result button to get the result</li>
+            <li>Click the show answer button to check your answers</li>
+          </ul>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div id="border-curve" style="display: table;width: 100%;">
+    <div id="head" style="display: table-row;">
+      <div style="display: table-cell;width: 70%;">
+        <p style="font-size:30px!important;">Arrays in Go Programming</p>
+      </div>
+      <div style="display: table-cell;width: 30%;font-size: 20px;">
+        <a id="ins">Instructions</a>
+        <div id="sm"><span class="tooltiptext">
+            <p id="r" style="font-size: 15px;">Instructions</p>
+          </span>i</div>
+      </div>
+    </div>
+  </div>
+  <div id="border-curve" style="display: table;width: 100%;">
+    <div id="head1" style="display: table-row;">
+      <div style="display: table-cell;">
+        <p>1D/2D Array</p>
+      </div>
+    </div>
+  </div>
+  <div style="display: table;width: 100%;">
+    <div style="display: table-row;">
+      <div class="drop_menu" style="display: table-cell;width:50%;">
+        <form>
+          <label>Array</label><br>
+          <select id="operation" style="width:100%;">
+            <option value="">Select</option>
+            <option value="0">1D Array</option>
+            <option value="1">2D Array</option>
+            <option value="2">Slicing in Array</option>
+          </select>
+          <input type="text" id="size1DArr" class="valarray" placeholder="Enter Size Of Array" style="display:none;">
+          <input type="text" id="key" class="valarray" placeholder="Enter The Key Element" style="display:none;">
+          <input type="text" id="arrval" class="valarray" placeholder="Enter The Comma Seperated Array Values"
+            style="display:none;">
+          <input type="text" id="size2DArrrow" class="valarray" placeholder="Enter No Of Rows" style="display:none;">
+          <input type="text" id="size2DArrcol" class="valarray" placeholder="Enter No Of Columns" style="display:none;">
+          <input type="button" onclick="datainput()" value="Execute" id="btn3">
+          <input type="button" value="Reset" id="btn2">
+        </form>
+      </div>
+      <div class="drop_menu" style="display: table-cell;width:50%;">
+        <div id="pic1" style="display: none;">
+          <p>Algorithms</p>
+          <p style="height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                  0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+            <i>1D Array:-<br><br>
+              Step 1: Start<br><br>
+              Step 2: Declare 1D array arr.<br><br>
+              Step 3: Store array elements at i<sup>th</sup>index.<br><br>
+              Step 4:Print value of array elements.<br><br>
+              Step 5:End.<br><br>
+              <img src="./images/array1.png" style="position:relative;left:30%;display:none;height: 60%;width: 50%;"
+                id="flow1">
+            </i>
+          </p>
+        </div>
+        <div id="pic2" style="display:none;">
+          <p>Algorithms</p>
+          <p style="height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+            <i>2D Array:-<br><br>
+              Step 1: Start<br><br>
+              Step 2: Declare 2D array arr.<br><br>
+              Step 3: Store array element in matrix form i<sup>th</sup> row and j<sup>th</sup> column<br><br>
+              Step 4: Print the value of array elements<br><br>
+              Step 5: End.<br><br>
+              <img src="./images/array2.png" style="position:relative;left:30%;display:none;height: 60%;width: 50%;"
+                id="flow2">
+            </i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="head1" style="display: table-row;">
+      <div id="border-curve" style="display: table-cell;width: 50%;border-right: 1px solid black;">
+        <p>Source Code</p>
+      </div>
+      <div id="border-curve" style="display: table-cell;width:50%;border-left: 1px solid black;">
+        <p>Output</p>
+      </div>
+    </div>
+    <div style="display: table-row;">
+      <div class="drop_menu"
+        style="display: table-cell;max-width: 50%;height:500px;border-right: 1px solid black;word-wrap: break-word;">
+        <div id="demo">
+        </div>
+        <div class="drop_menu">
+          <input type="button" value="Next Instruction" id="btn1" style="display:none;">
+        </div>
+      </div>
+
+      <div class="drop_menu" style="display: table-cell;max-width:50%;height:500px;border-left: 1px solid black;">
+        <div style="position: relative;width:100%;">
+          <div id="tbl" style="position: absolute;display: block;width:100%;">
+
+            <table id="arr1D"></table>
+            <table id="arr2D"></table>
+            <table id="arr2D1"></table>
+            <table id="arr2D2"></table>
+            <div style="position: relative;top:50px;">
+              <i id="info"></i><br><br>
+              <b id="r3c1" style="display:none;color:black;">Output : </b>
+              <b id="r3c5" style="color:black;display:inline-block;"></b><br>
+              <a href="#container5" id="test"
+                style="text-align:center;display:none;padding:10px;border:5px solid rgb(245, 22, 6);width:25%;position:relative;left:45%;">Program
+                Task</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id="container5" style="position:absolute;display:none;width:100%;margin:auto;padding:10px;">
+      <div style="padding:10px;margin:auto;width:100%;position:relative;border:5px solid #CD5C5C;box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+      0 6px 20px 0 rgba(7, 135, 240, 0.37);border-radius: 10px;overflow:auto;">
+        <span id="container11"
+          style="width:100%;display:none;background-color:white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Complete The Blanks using syntax Of Go Programming Language and print the third element of 1D array :
+            </p>
+            package main<br><br>
+            import("fmt")<br><br>
+            func main{<br><br>
+            var arr=[5]int{2, 4, 6, 8, 10}<br><br>
+            fmt.Print(<input type="text" id="a52" class="textField" size="3">)&nbsp&nbsp&nbsp<b id="sh1"></b><br><br>
+            }<br><br>
+            <input type="button" value="Next" class="btn" id="btn11">
+
+          </form>
+        </span>
+        <span id="container22"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Complete The Blanks using syntax Of Go Programming Language and print 5 the element of 2D array : </p>
+
+            package main<br><br>
+            import("fmt")<br><br>
+            func main(){<br><br>
+            var arr=[2][3]int{{1,2,3},{4,5,6}}<br><br>
+            fmt.Print(<input type="text" id="b12" class="textField" size="3">)&nbsp&nbsp&nbsp<b id="sh2"></b><br><br>
+            }<br><br><input type="button" value="Next" class="btn" id="btn22">
+          </form>
+        </span>
+        <span id="container33"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+
+            <p>Complete The Blanks using syntax Of Go Programming Language and print the sum of diagonal elements of
+              square matrix :</p>
+
+            package main<br><br>
+            import("fmt")<br><br>
+            func main(){<br><br>
+            var arr=[3][3]int{{1,2,3},{4,5,6},{7,8,9}}<br><br>
+            fmt.Print(<input type="text" id="c11" class="textField" size="3">)&nbsp&nbsp&nbsp<b id="sh3"></b><br><br>
+            }<br><br><input type="button" value="Next" class="btn" id="btn33">
+          </form>
+        </span>
+        <span id="container44"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Fill the blanks of the given GO Program and make a 3*3 Matrix and print sum of all elements : </p>
+
+            package main<br><br>
+            import ("fmt")<br><br>
+            func main(){<br><br>
+            var arr=[<input type="text" id="d11" class="textField"
+              size="3">][3]int{{1,2,3},{4,5,6},{7,8,9}}&nbsp&nbsp&nbsp<b id="sh4"></b><br><br>
+            for&nbsp;i=0;i&lt;3;i++{<br><br>
+            &nbsp;&nbsp;for&nbsp;<input type="text" id="d22" class="textField" size="3">{&nbsp&nbsp&nbsp<b
+              id="sh5"></b><br><br>
+            sum=sum+arr[i][j]<br><br>
+            }}<br><br>
+            fmt.Print("The Sum of all elements of matrix is : ",sum)<br><br>
+            }<br><br>
+            <input type="button" value="Next" class="btn" id="btn44">
+          </form>
+        </span>
+
+        <span id="container55"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Fill the blanks of the given GO Program and find sum of all elements of 1D matrix :</p>
+
+            package main<br><br>
+            import ("fmt")<br><br>
+            func main(){<br><br>
+            var arr=[5]<input type="text" id="e11" class="textField" size="3">{2, 4, 6, 8, 10}&nbsp&nbsp&nbsp<b
+              id="sh6"></b><br><br>
+            var sum int=0<br><br>
+            for&nbsp;i=0;i&lt;5;i++{<br><br>
+            sum=sum+<input type="text" id="e22" class="textField" size="3">&nbsp&nbsp&nbsp<b id="sh7"></b><br><br>
+            }<br><br>
+            fmt.Print("The Sum Of Array Elements Are : ",sum)<br><br>
+            }<br><br>
+            <input type="button" value="Next" class="btn" id="btn55">
+          </form>
+        </span>
+
+        <span id="container66"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Fill the blanks of the given GO Program and find the minimum element in an array :</p>
+
+            package main<br><br>
+            import ("fmt")<br><br>
+            func main(){<br><br>
+            var arr=[5]int{2, 4, 1, 8, 10}<br><br>
+            var min int<br><br>
+            min=a[0]<br><br>
+            for&nbsp;i=0;i&lt;5;i++{<br><br>
+            if(<input type="text" id="f11" class="textField" size="3">)&nbsp&nbsp&nbsp<b id="sh8"></b><br><br>
+            min=arr[i]<br><br>
+            }<br><br>
+            fmt.Print("The Minimum Element Is : ",min)<br><br>
+            }<br><br>
+            <input type="button" value="Next" class="btn" id="btn66">
+          </form>
+        </span>
+        <span id="container88"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Identify The Errors And Check The Wrong Ones : </p>
+            <input type="checkbox" id="cb1"> package main&nbsp&nbsp&nbsp<b id="sh9"></b><br><br>
+            <input type="checkbox" id="cb2" value="e"> import("Fmt")&nbsp&nbsp&nbsp<b id="sh10"></b><br><br>
+            <input type="checkbox" id="cb3"> func main(){&nbsp&nbsp&nbsp<b id="sh11"></b><br><br>
+            <input type="checkbox" id="cb4" value="e">var arr=[5]{2, 4, 1, 8, 10}int&nbsp&nbsp&nbsp<b
+              id="sh12"></b><br><br>
+            <input type="checkbox" id="cb5" value="e"> For i=0;i&lt;5;i++<b id="sh13"></b><br><br>
+            <input type="checkbox" id="cb6" value="e"> fmt.Print(arr{i})}&nbsp&nbsp&nbsp<b id="sh14"></b><br><br>
+            <input type="button" value="Next" class="btn" id="btn88">
+          </form>
+        </span>
+        <span id="container99"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Identify The Errors And Check The Wrong Ones :</p>
+            <input type="checkbox" id="cb8"> package main&nbsp&nbsp&nbsp<b id="sh15"></b><br><br>
+            <input type="checkbox" id="cb9"> import("fmt")&nbsp&nbsp&nbsp<b id="sh16"></b><br><br>
+            <input type="checkbox" id="cb10" value="e"> func Main(){&nbsp&nbsp&nbsp<b id="sh17"></b><br><br>
+            <input type="checkbox" id="cb11" value="e"> var arr=[3][3]int{1,2,3,4,5,6,7,8,9}<b id="sh18"></b><br><br>
+            <input type="checkbox" id="cb12" value="e">&nbsp&nbsp&nbspfmt.print(arr(2))&nbsp&nbsp&nbsp<b
+              id="sh19"></b><br><br>
+            <input type="checkbox" id="cb13"> }&nbsp&nbsp&nbsp<b id="sh20"></b><br><br>
+            <input type="button" value="Next" class="btn" id="btn99">
+          </form>
+        </span>
+        <span id="container1010"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Find The Transpose of the given matrix :</p>
+            <table id="matrixQ">
+              <tr>
+                <td onclick="store2(1,1)" id="t11">1</td>
+                <td onclick="store2(1,2)" id="t12">2</td>
+                <td onclick="store2(1,3)" id="t13">3</td>
+              </tr>
+              <tr>
+                <td onclick="store2(2,1)" id="t21">4</td>
+                <td onclick="store2(2,2)" id="t22">5</td>
+                <td onclick="store2(2,3)" id="t23">6</td>
+              </tr>
+              <tr>
+                <td onclick="store2(3,1)" id="t31">7</td>
+                <td onclick="store2(3,2)" id="t32">8</td>
+                <td onclick="store2(3,3)" id="t33">9</td>
+              </tr>
+            </table><br><br>
+            <b id="sh21"></b>
+            <table id="matrixT" style="visibility: hidden;">
+              <tr>
+                <td>1</td>
+                <td>4</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>5</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>6</td>
+                <td>9</td>
+              </tr>
+            </table><br><br>
+            <input type="button" value="Next" class="btn" id="btn1010">
+          </form>
+        </span>
+        <span id="container1111"
+          style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+          <form style="margin:auto;">
+            <p>Find the slicing of the a[1:4] of the given array a=[1,2,3,4,5] : </p>
+            <table id="slicingQ">
+              <tr>
+                <td onclick="store1(1)" id="t1">1</td>
+                <td onclick="store1(2)" id="t2">2</td>
+                <td onclick="store1(3)" id="t3">3</td>
+                <td onclick="store1(4)" id="t4">4</td>
+                <td onclick="store1(5)" id="t5">5</td>
+              </tr>
+            </table>
+            <b id="sh22"></b>
+            <table id="slicingA" style="visibility: hidden;">
+              <tr>
+                <td>1</td>
+                <td style="background-color: red;">2</td>
+                <td style="background-color: red;">3</td>
+                <td style="background-color: red;">4</td>
+                <td>5</td>
+              </tr>
+            </table>
+            <input type="button" value="Next" class="btn" id="btn1111">
+          </form>
+        </span>
+
+        <span id="container77"
+          style="width:100%;height:100%;display:none;background-color:  #ffffff;padding:20px;margin:auto;position:relative;height:560px;">
+          <div
+            style="position:relative;width:100%;height:100%;margin:auto;background-color: rgb(252, 252, 252);padding:100px 0;">
+            <form style="position:relative;margin:auto;padding:30px;"><input type="button" value="Result"
+                onclick="cal()" id="resul" style="display:inline-block;position: relative;margin:auto;left:47%;">
+              <input type="button" value="Reset" onclick="rel()"
+                style="display:none;position: relative;margin:auto;left:47%;" id="res"></form>
+            <div
+              style="overflow:auto;background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);left:0px;margin:auto;position:relative;height:230px;"
+              id="ans" class="hiddenBox1">
+              <p id="corr" style="color:green"></p>
+              <p id="incorr" style="color:red"></p>
+              <p id="percentage" style="color:rgb(240, 6, 240)"></p>
+              <p id="feedback"></p>
+              <form><input type="button" value="Show Answers" id="show" class="btn"
+                  style="display:none;position:relative;left:25px;"></form>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div id="toast">
+      <div id="img">Alert</div>
+      <div id="desc">A notification message..</div>
+    </div>
+    <script src="./js/array_sim.js"></script>
+    <script src="./js/matrix.js"></script>
+    <script src="./js/slicing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,501 @@
+#toast {
+  visibility: hidden;
+  max-width: 50px;
+  height: 50px;
+  /*margin-left: -125px;*/
+  margin: auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+
+  position: fixed;
+  z-index: 1;
+  left: 0;right:0;
+  bottom: 30px;
+  font-size: 17px;
+  white-space: nowrap;
+}
+#toast #img{
+width: 50px;
+height: 50px;
+  
+  float: left;
+  
+  padding-top: 16px;
+  padding-bottom: 16px;
+  
+  box-sizing: border-box;
+
+  
+  background-color: #111;
+  color: #fff;
+}
+#toast #desc{
+
+  
+  color: #fff;
+ 
+  padding: 16px;
+  
+  overflow: hidden;
+white-space: nowrap;
+}
+
+#toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+  from {min-width: 50px} 
+  to {min-width: 350px}
+}
+
+@keyframes expand {
+  from {min-width: 50px}
+  to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+  from {min-width: 350px} 
+  to {min-width: 350px}
+}
+
+@keyframes stay {
+  from {min-width: 350px}
+  to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+  from {min-width: 350px;} 
+  to {min-width: 50px;}
+}
+
+@keyframes shrink {
+  from {min-width: 350px;} 
+  to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 60px; opacity: 0;}
+}
+#arr1D{
+  border: 1px solid black;
+}
+#arr2D{
+  border: 1px solid black;
+}
+td{
+  border: 1px solid black;
+  color:white;
+  text-align: center;
+  background-color: blue;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to bottom, #f1faee, #bed5ca, #8cb0ac, #5d8b94, #38667c, #305b7f, #394d7d, #4c3c74, #793a7d, #a63277, #cc2c64, #e63946);
+}
+li{
+  padding:14px;
+}
+td{
+  padding:15px;
+  width:400px;
+}
+
+/*tooltip text*/
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top:100%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+#sm .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 45%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+#sm:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: rotate(180deg);
+}
+#sm:hover #r{
+  transform: rotate(180deg);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #05668D;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #ffffff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+  color:red;
+}
+
+/*Editor*/
+
+.btn {
+  padding: 10px;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.hiddenBox1 {
+  width: 0px;
+  height: 0px;
+  transition: all 1s;
+}
+
+.fullSizeBox1 {
+  background-color: blue;
+  width: 200px;
+  height: 150px;
+  border: 5px solid yellow;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.textField {
+  border: 1px solid blue;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+.valarray{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.valarray:hover{
+  box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+  0 6px 20px 0 rgba(7, 135, 240, 0.37);
+}
+.valarray:focus{
+  box-shadow: 0 4px 8px 0 rgba(6, 135, 240, 0.507),
+    0 6px 20px 0 rgba(6, 135, 240, 0.5);
+}
+
+#first,#last,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type="text"]:hover,
+select:hover {
+  box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+    0 6px 20px 0 rgba(7, 135, 240, 0.37);
+}
+input[type="text"]:focus,
+select :focus {
+  box-shadow: 0 4px 8px 0 rgba(6, 135, 240, 0.507),
+    0 6px 20px 0 rgba(6, 135, 240, 0.5);
+}
+
+input[type="button"] {
+  background-color: rgb(13, 74, 240);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #071ef5;
+}
+
+#btn2 {
+  background-color: rgb(211, 35, 35);
+}
+#btn1 {
+  background-color: rgb(9, 216, 19);
+}
+#btn2:hover {
+  background-color: red;
+}
+#btn1:hover {
+  background-color: rgb(4, 145, 4);
+}
+#btn4 {
+  background-color: rgb(9, 216, 19);
+}
+#btn4:hover {
+  background-color: rgb(4, 145, 4);
+}
+.container1 {
+  background-color: #F0F3BD;
+  padding: 20px;
+  overflow: auto;
+}
+.container2 {
+  padding: 20px;
+  background-color: #F0F3BD;
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+}
+.container3 {
+  padding: 20px;
+  width: 50%;
+  height: 50%;
+  background-color: #F0F3BD;
+  overflow: auto;
+}
+#inst {
+  color: white;
+}
+.space {
+  height: 150px;
+}
+#head1 {
+  width:100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #02C39A;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+#nav {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+  width: 100%;
+  height: 2em;
+  background-color:#05668D;
+}
+#sm {
+  display: none;
+}
+@media screen and (max-width: 870px) {
+  #ins {
+    display: none;
+  }
+  
+  .container2:hover{
+    width:60%;
+  }
+  .container3:hover+.container2{
+      width:40%;
+  }
+  #sm {
+    display: inline-block;
+    transform: translateX(40px);
+    padding-top:12px;
+    border-radius: 500px;
+    padding-left: 14px;
+    padding-right: 14px;
+    width: 50px;
+    height: 50px;
+    border: 4px solid white;
+    color: white;
+    transition: width 2s, height 2s, transform 2s;
+    cursor:pointer;
+  }
+}
+.hiddenBox {
+  width: 0px;
+  height: 0px;
+  transition: all 2s;
+}
+tr{
+  padding:5px;
+}
+.fullSizebox {
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+  border: 5px solid yellow;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding-top: 13px;
+}
+#ins:hover {
+  cursor: pointer;
+  background-color:white;
+  color:#05668D;
+}
+#ins {
+  border-radius: 5px;
+  padding:5px;
+  border: 4px solid white;
+  text-decoration: none;
+  color: white;
+}
+#test:hover {
+  border: 5px solid white;
+  cursor: pointer;
+  background-color: rgb(199, 18, 5);
+}
+#test {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  border-radius: 20px;
+  background-color: rgb(245, 22, 6);
+}
+#b1 {
+  overflow: hidden;
+}
+#b2 {
+  overflow: hidden;
+}
+#b3 {
+  overflow: hidden;
+}
+
+
+#head{
+  color: white;
+  text-align: center;
+  background-color: #05668D;
+  font-size:20px;
+  padding: 2%;    
+
+}
+
+#head1{
+  color: white;
+  text-align: center;
+  background-color: #02C39A;
+  font-size:20px;
+  padding: 2%;  
+}
+
+#border-curve{
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.drop_menu{
+  padding: 2%;
+  background-color: #F0F3BD;
+  overflow: auto;
+  color: rgb(5,5,5);
+}
+.out{
+  background-color: rgba(8, 43, 243, 0.685)!important;
+  cursor: not-allowed!important;
+}
+
+#operation{
+  width: 35%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+#btn3, #btn2{
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn3{
+      background-color: rgb(13, 74, 240);
+}
+#btn3:hover{
+  background-color: rgb(7, 59, 202);
+}
+
+#btn2{
+  background-color: rgb(211, 35, 35);
+}

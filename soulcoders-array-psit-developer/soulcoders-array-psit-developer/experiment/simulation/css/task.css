@@ -1,0 +1,11 @@
+#matrixQ,#slicingQ{
+    border:1px solid black;
+}
+td{
+    padding: 20px;
+    border:1px solid black;
+}
+td:hover{
+    background-color: rgb(190, 184, 184)!important;
+    cursor:pointer;
+}

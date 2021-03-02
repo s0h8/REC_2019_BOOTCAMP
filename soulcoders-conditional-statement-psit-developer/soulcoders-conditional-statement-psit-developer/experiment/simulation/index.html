@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Conditional flow Simulator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/if_sim.css">
+  </link>
+  </head>
+<body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><div id="inst">
+                <ul>
+                <li>Select any one conditional statement from the dropdown</li>
+                <li>Then Click The Execute Button to load the source code and algorithm</li>
+                <li>Click the next instruction button to understand line by line execution of program</li>
+                <li>Enter The Numbers</li>
+                <li>You may click reset button to restart the simulator</li>
+                <li>Click the program task button to load the task</li>
+                <li>Click the result button to get the result</li>
+                <li>Click the show answer button to check your answers</li>
+                </ul>
+            </div></p>
+        </div>
+    </div>
+    <div id = "border-curve" style = "display: table;width: 100%;">
+        <div id = "head"  style = "display: table-row;">
+            <div  style = "display: table-cell;width: 70%;">
+                <p style="font-size:30px!important;">Conditional Operations</p>
+            </div>
+            <div  style = "display: table-cell;width: 30%;font-size: 20px;">
+                <a id="ins">Instructions</a>
+                <div id="sm"><span class="tooltiptext"><p id="r" style="font-size: 15px;">Instructions</p></span>i</div>
+            </div>
+        </div>
+    </div>
+    <div id="sim1" style="display:block;">
+    <div id="border-curve" style = "display: table;width: 100%;">
+        <div id = "head1"  style = "display: table-row;">
+            <div  style = "display: table-cell;">
+                <p>Conditional Statements</p>
+            </div>
+        </div>
+    </div>
+    <div style = "display: table;width: 100%;">
+        <div style = "display: table-row;">
+            <div class = "drop_menu" style = "display: table-cell;width:50%;">
+                <form>
+                    <label>Conditional Statement</label><br>
+                    <select id="operation" style="width:100%;">
+                        <option value="">Select</option>
+                        <option value="0">If Statement</option>
+                        <option value="1">If-Else Statement</option>
+                        <option value="2">If-Else-If Statement</option>
+                        <option value="3">Nested-If Statement</option>
+                        <option value="4">Switch Statement</option>
+                    </select>
+                    <input type="button" onclick= "datainput()" value="Execute" id="btn3">
+                    <input type="button" value="Reset" id="btn2">
+                </form>
+            </div>
+            <div class = "drop_menu" style = "display: table-cell;width:50%;">
+                    <div id="pic1" style="display: none;">
+                            <p>Algorithms</p>
+                            <p style="height: 40%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                  0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+                              <i>If statement:-<br><br>
+                                Step 1: Start<br><br>
+                                Step 2: Declare variable a.<br><br>
+                                Step 3: Read variable a.<br><br>
+                                Step 4: If a&lt20<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspa=2*a<br><br>
+                                Step 5:End.
+                              </i>
+                            </p>
+                          </div>
+                          <div id="pic2" style="display:none;">
+                            <p>Algorithms</p>
+                            <p style="height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+                              <i>If-Else statement:-<br><br>
+                                Step 1: Start<br><br>
+                                Step 2: Declare variable a.<br><br>
+                                Step 3: Read variable a.<br><br>
+                                Step 4: If a&lt20<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is less than 20.<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspElse<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is not less than 20.<br><br>
+                                Step 5:End.
+                              </i>
+                            </p>
+                          </div>
+                          <div id="pic3" style="display:none;">
+                            <p>Algorithms</p>
+                            <p style="height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                  0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+                              <i>if-else-if statement:-<br><br>
+                                Step 1: Start<br><br>
+                                Step 2: Declare variables a.<br><br>
+                                Step 3: Read variables a.<br><br>
+                                Step 4: If (a == 10) <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is 10. <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspElse if (a == 20) <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is 20.<br><br> 
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspElse if (a == 30) <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is 30.<br><br> 
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspElse<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is other than 10,20 and 30.<br><br>
+                                Step 5:End. 
+                              </i>
+                              </i>
+                            </p>
+                          </div>
+                          <div id="pic4" style="display:none">
+                            <p>Algorithms</p>
+                            <p style="height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+                              <i>Nested if statement:-<br><br>
+                                Step 1: Start<br><br>
+                                Step 2: Declare variables a,b.<br><br>
+                                Step 3: Read variables a,b.<br><br>
+                                Step 4: If (a <= 100)<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspIf (b >= 200)<br><br> 
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is less than or equal to 100 and b is greater than or equal to 200.<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDisplay a is less than or equal to 100 and b is less than 200.<br><br>
+                                Step 5:End.<br><br>
+                              </i>
+                            </p>
+                          </div>
+                          <div id="pic5" style="display:none">
+                            <p>Algorithms</p>
+                            <p style="height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+                  0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+                              <i>switch statement:-<br><br>
+                                Step 1: Start<br><br>
+                                Step 2: Declare variable choice.<br><br>
+                                Step 3: Read variable choice.<br><br>
+                                Step 4: switch choice<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 1: Display Choice is 1.<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak; <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 2: Display Choice is 2.<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak; <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 3: Display Choice is 3.<br><br> 
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak; <br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdefault:Display Choice other than 1,2 and 3.<br><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak; <br><br>
+                                Step 5:End.<br><br>
+                              </i>
+                            </p>
+                          </div>
+                        </div>
+            </div>
+            </div>
+            </div>
+            <br><br>
+            <div id="sim2" style="display: table;width:100%;">
+            <div id = "head1"  style = "display: table-row;">
+              <div id = "border-curve" style = "display: table-cell;width: 50%;border-right: 1px solid black;">
+                  <p>Source Code</p>
+              </div>
+              <div id = "border-curve" style = "display: table-cell;width:50%;border-left: 1px solid black;">
+                  <p>Output</p>
+              </div>
+          </div>
+          <div   style = "display: table-row;">
+          <div  class = "drop_menu" style = "display: table-cell;width: 50%;height:500px;border-right: 1px solid black;">
+              <div id = "demo">
+              </div>
+              <div class="drop_menu">
+              <input type="button" value="Prev Instruction" id="btn4" style="display:none;">
+              <input type="button" value="Next Instruction" id="btn1" style="display:none;">
+              </div> 
+          </div>
+              
+              <div class = "drop_menu"  style = "display: table-cell;width:50%;height:500px;border-left: 1px solid black;">
+                      <table id="tbl" style="display:none;width:100%;">
+                              <tr style="height:70px;" colspan="2">
+                                <td id="r4c1" style="display:none;color:black;width:100%;">
+                                  <b id="change" style="display: inline-block;">a</b>
+                                    <b id="r4c2">
+                                  <div class="hiddenBox" id="b1" style="display: inline-block;"></div>
+                                </b>
+                                <b id="r4c8" style="display:none;color:black;">
+                                  <b id="m1"></b>
+                                </b>
+                                <b id="r4c3" style="padding-left:10%;display:none;color:black;">
+                                  <b style="display: inline-block;">b</b>
+                                </b>
+                                <b id="r4c4" style="display: inline-block;">
+                                  <div class="hiddenBox" id="b2"></div>
+                                </b>
+                                <b id="r4c9" style="display:none;color:black;">
+                                  <b id="m2"></b>
+                                </b>
+                                </td>
+                              </tr>
+                              <tr style="height:100px">
+                                <td id="fn1" style="display:none;">Enter The Number a : </td>
+                                <td id="r1c1" style="display:none;color:black;"><input type="text" id="first" placeholder="Enter The First Number"></td>
+                              </tr>
+                              <tr style="height:100px">
+                                <td id="ln1" style="display:none;">Enter The Number b : </td>
+                                <td id="r2c1" style="display:none;color:black;"><input type="text" id="last" placeholder="Enter The Second Number"></td>
+                              </tr>
+                              <tr style="height:100px">
+                                <td id="r3c1" style="display:none;color:black;">Output : </td>
+                                <td id="r3c5" style="color:black;display:inline-block;"></td><br>
+                              </tr>
+                            </table>
+                            <a href="#container5" id="test" style="text-align:center;display:none;padding:10px;border:5px solid rgb(245, 22, 6);width:25%;position:relative;left:41%;"
+                                  >Program Task</a>
+                          </div>
+          </div>
+              </div>
+        <br>
+    <div id = "container5" style="display:none;width:100%;margin:auto;padding:10px;">
+      <div style="padding:10px;margin:auto;width:100%;position:relative;border:5px solid #CD5C5C;box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+      0 6px 20px 0 rgba(7, 135, 240, 0.37);border-radius: 10px;overflow:auto;">
+          <span id="container11" style="width:100%;display:none;background-color:white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Complete The Blanks using syntax Of Go Programming Language : </p>
+                  package main<br><br>
+                  import("fmt")<br><br>
+                  func main<br><br>
+                  var n=12<br><br>
+                  if(<input type="text" id="a1111" class="textField" size="2">){&nbsp&nbsp&nbsp<b id="sh1"></b><br><br>
+                  fmt.Printf("n is even")<br><br>
+                  }<input type="text" id="a22" class="textField" size="2">{&nbsp&nbsp&nbsp<b id="sh2"></b><br><br>
+                  fmt.Printf("n is odd")<br><br>
+                  }<br><br>
+                  }<br><br>
+                  <input type="button" value="Next" class="btn" id="btn11">
+  
+              </form>
+          </span>
+          <span id="container22" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Complete The Blanks using syntax Of Go Programming Language : </p>
+  
+                  package main<br><br>
+                  import("fmt")<br><br>
+                  func main(){<br><br>
+                  var a,b,c int=5,8,7<br><br>
+                  if(<input type="text" id="b11" class="textField" size="2">)&nbsp&nbsp&nbsp<b id="sh3"></b><br><br>
+                  &nbsp&nbsp&nbspif(<input type="text" id="b22" class="textField" size="2">)&nbsp&nbsp&nbsp<b id="sh4"></b><br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspfmt.Print("a is greatest")<br><br>
+                  }<br><br><input type="button" value="Next" class="btn" id="btn22">
+              </form>
+          </span>
+          <span id="container33" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+  
+                  <p>Complete The Blanks using syntax Of Go Programming Language : </p>
+  
+                  package main<br><br>
+                  import("fmt")<br><br>
+                  func main(){<br><br>
+                  var a int=20<br><br>
+                  if(<input type="text" id="c11" class="textField" size="2">)&nbsp&nbsp&nbsp<b id="sh5"></b><br><br>
+                  &nbsp&nbsp&nbspfmt.Print("a is Greater Than 20")<br><br>
+                  }<br><br><input type="button" value="Next" class="btn" id="btn33">
+              </form>
+          </span>
+          <span id="container44" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Compute the output and fill the blanks of the given GO Program </p>
+  
+                  package main<br><br>
+                  import ("fmt")
+                  func main(){<br><br>
+                  var day int<br><br>
+                  switch&nbsp(<input type="text" id="d11" class="textField" size="2">){&nbsp&nbsp&nbsp<b id="sh6"></b><br><br>
+                  &nbsp&nbsp&nbspcase 1:fmt.Print("Monday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbspcase 2:fmt.Print("Tuesday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbspcase 3:fmt.Print("Wednesday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbspcase 4:fmt.Print("Thursday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbspcase 5:fmt.Print("Friday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbspcase 6:fmt.Print("Saturday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbspcase 7:fmt.Print("Sunday");<br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;<br><br>
+                  &nbsp&nbsp&nbsp<input type="text" id="d22" class="textField" size="2">:fmt.Print("Wrong Choice");&nbsp&nbsp&nbsp<b id="sh7"></b><br><br>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;}<br><br>
+                  }<br><br>
+                  <input type="button" value="Next" class="btn" id="btn44">
+              </form>
+          </span>
+  
+          <span id="container55" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Compute the output and fill the blanks of the given GO Program </p>
+  
+                  package main<br><br>
+                  import ("fmt")<br><br>
+                  func main(){<br><br>
+                  var a int=5<br><br>
+                  if(<input type="text" id="e11" class="textField" size="2">)&nbsp&nbsp&nbsp<b id="sh8"></b><br><br>
+                  &nbsp&nbsp&nbspfmt.Print("a is equal to 5")<br><br>
+                  else if(<input type="text" id="e22" class="textField" size="2">)&nbsp&nbsp&nbsp<b id="sh9"></b><br><br>
+                  &nbsp&nbsp&nbspfmt.Print("a is greater than 5")<br><br>
+                  <input type="text" id="e33" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh10"></b><br><br>
+                  &nbsp&nbsp&nbspfmt.Print("a is less than 5")<br><br>
+                  }<br><br>
+                  <input type="button" value="Next" class="btn" id="btn55">
+              </form>
+          </span>
+  
+          <span id="container66" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Compute the output and fill the blanks of the given GO Program </p>
+                  package main<br><br>
+                  import ("fmt")
+                  func main(){<br><br>
+                  var a,b int=12,13<br><br>
+                  if(<input type="text" id="f11" class="textField" size="2">)&nbsp&nbsp&nbsp<b id="sh11"></b><br><br>
+                  &nbsp&nbsp&nbspfmt.Print("a is equal to b")<br><br>
+                  }else{<br><br>
+                  &nbsp&nbsp&nbspfmt.Print("a is not equal to b")}<br><br>
+                  }<br><br>
+  
+                  <input type="button" value="Next" class="btn" id="btn66">
+              </form>
+          </span>
+          <span id="container88" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Identify The Errors And Check The Wrong Ones : </p>
+                  <input type="checkbox" id="cb1"> package main&nbsp&nbsp&nbsp<b id="sh12"></b><br><br>
+                  <input type="checkbox" id="cb2" value="e"> import("Fmt")&nbsp&nbsp&nbsp<b id="sh13"></b><br><br>
+                  <input type="checkbox" id="cb3"> func main(){&nbsp&nbsp&nbsp<b id="sh14"></b><br><br>
+                  <input type="checkbox" id="cb4" value="e">var a,b Int=5,4&nbsp&nbsp&nbsp<b id="sh15"></b><br><br>
+                  <input type="checkbox" id="cb5" value="e"> if(a&ltb)<b id="sh16"></b><br><br>
+                  <input type="checkbox" id="cb6"> &nbsp&nbsp&nbspfmt.Print("a is greater than b")&nbsp&nbsp&nbsp<b id="sh17"></b><br><br>
+                  <input type="checkbox" id="cb7">else&nbsp&nbsp&nbsp<b id="sh18"></b><br><br>
+                  <input type="checkbox" id="cb8"> &nbsp&nbsp&nbspfmt.Print("a is not greater than b")}&nbsp&nbsp&nbsp<b id="sh19"></b><br><br>
+                  <input type="button" value="Next" class="btn" id="btn88">
+              </form>
+          </span>
+          <span id="container99" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Identify The Errors And Check The Wrong Ones :</p>
+                  <input type="checkbox" id="cb10"> package main&nbsp&nbsp&nbsp<b id="sh20"></b><br><br>
+                  <input type="checkbox" id="cb11"> import("fmt")&nbsp&nbsp&nbsp<b id="sh21"></b><br><br>
+                  <input type="checkbox" id="cb12" value="e"> func Main(){&nbsp&nbsp&nbsp<b id="sh22"></b><br><br>
+                  <input type="checkbox" id="cb13" value="e"> var int n&nbsp&nbsp&nbsp<b id="sh23"></b><br><br>
+                  <input type="checkbox" id="cb14" value="e"> if(n%2==1)&nbsp&nbsp&nbsp<b id="sh24"></b><br><br>
+                  <input type="checkbox" id="cb15">&nbsp&nbsp&nbspfmt.print("n is even")&nbsp&nbsp&nbsp<b id="sh25"></b><br><br>
+                  <input type="checkbox" id="cb16"> else&nbsp&nbsp&nbsp<b id="sh26"></b><br><br>
+                  <input type="checkbox" id="cb17">&nbsp&nbsp&nbspfmt.print("n is odd")&nbsp&nbsp&nbsp<b id="sh27"></b><br><br>
+                  <input type="checkbox" id="cb18"> }&nbsp&nbsp&nbsp<b id="sh28"></b><br><br>
+                  <input type="button" value="Next" class="btn" id="btn99">
+              </form>
+          </span>
+  
+          <span id="container77" style="width:100%;height:100%;display:none;background-color:  #ffffff;padding:20px;margin:auto;position:relative;height:560px;">
+              <div style="position:relative;width:100%;height:100%;margin:auto;background-color: rgb(252, 252, 252);padding:100px 0;">
+                  <form style="position:relative;margin:auto;padding:30px;"><input type="button" value="Result" onclick="cal()" id="resul" style="display:inline-block;position: relative;margin:auto;left:47%;">
+                  <input type="button" value="Reset" onclick="rel()" style="display:none;position: relative;margin:auto;left:47%;" id="res"></form>
+                  <div style="overflow:auto;background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);left:0px;margin:auto;position:relative;height:230px;" id="ans" class="hiddenBox1">
+                    <p id="corr" style="color:green"></p>
+                    <p id="incorr" style="color:red"></p>
+                    <p id="percentage" style="color:rgb(240, 6, 240)"></p>
+                    <p id="feedback"></p>
+                    <form><input type="button" value="Show Answers" id="show" class="btn" style="display:none;position:relative;left:25px;"></form>
+                  </div>
+              </div>
+          </span>
+      </div>
+  </div>
+<script src="./js/if_sim.js"></script>
+</body>
+</html>

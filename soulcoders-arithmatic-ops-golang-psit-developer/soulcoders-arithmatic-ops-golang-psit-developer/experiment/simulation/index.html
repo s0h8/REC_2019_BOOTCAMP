@@ -1,0 +1,395 @@
+<html>
+
+<head>
+  <title>Arithmetic Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href=".\css\arith_sim.css">
+</head>
+
+<body>
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p><div id="inst">
+          <ul>
+            <li>Select any operator from the dropdown</li>
+            <li>Click The Execute Button to load the source code and algorithm</li>
+            <li>Click the next instruction button to understand line by line execution of program</li>
+            <li>Enter The First Number</li>
+            <li>Enter The Second Number</li>
+            <li>You may click reset button to restart the simulator</li>
+            <li>Click the program task button to load the task</li>
+            <li>Click the result button to get the result</li>
+            <li>Click the show answer button to check your answers</li>
+          </ul>
+        </div></p>
+    </div>
+  
+  </div>
+  <div id="nav" style="display: table;width: 100%;">
+    <div style="display: table-row;">
+      <div style="display: table-cell;width:60%;">
+        Arithmetic Operations
+      </div>
+      <div style="display: table-cell;width:40%;">
+        <a id="ins">Instructions</a>
+          <div id="sm"><span class="tooltiptext"><p id="r" style="font-size: 15px;">Instructions</p></span>i</div>
+        </div>
+      </div>
+  </div>
+  <!-- simulator -->
+  <div style="display: table;width: 100%;">
+    <div style="display: table-row;">
+  <div style= "display: table-cell">
+    <p id="head1">Operator</p>
+  </div>
+</div>
+<div style="display: table-row;">
+  <div style="display: table; width: 100%;">
+      <div style="display: table-row;">
+  <div style= "display: table-cell;padding: 2%;width:50%;" class="container1">
+    <form>
+      <div>
+        <label for="op">Arithmetic Operations</label><br>
+        <select id="op" style="width: 100%;">
+          <option value="">Select</option>
+          <option value="0">Addition</option>
+          <option value="1">Subtraction</option>
+          <option value="2">Multiplication</option>
+          <option value="3">Division</option>
+          <option value="4">Modulus</option>
+        </select>
+        <input type="button" value="Execute" id="btn3">
+        <input type="button" value="Reset" id="btn2">
+      </div>
+    </form>
+  </div>
+  <div style= "display: table-cell;padding: 2%;background-color: #F0F3BD;width:50%;">
+    <div id="sumpic" style="display: none;">
+      <p>Algorithms</p>
+      <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+    <i>Addition:-<br><br>
+    Start<br><br>
+    Step 1:Declare Data Variable a,b,c.<br><br>
+    Step 2:Take input from user in Variable a,b.<br><br>
+    Step 3:Add a,b and put it in c(c=a+b).<br><br>
+    Step 4:Print c.<br><br>
+    End.<br><br>
+    </i>
+    </p>
+    </div>
+    <div id="subpic" style="display:none;">
+      <p>Algorithms</p>
+      <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+      0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+      <i>Subtraction:-<br><br>
+      Start<br><br>
+      Step 1:Declare Data Variable a,b,c.<br><br>
+      Step 2:Take input from user in Variable a,b.<br><br>
+      Step 3:Subtract a,b and put it in c(c=a-b).<br><br>
+      Step 4:Print c.<br><br>
+      End.<br><br>
+      </i>
+      </p>
+    </div>
+    <div id="mulpic" style="display:none;">
+      <p>Algorithms</p>
+      <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+    <i>Multiplication:-<br><br>
+    Start<br><br>
+    Step 1:Declare Data Variable a,b,c.<br><br>
+    Step 2:Take input from user in Variable a,b.<br><br>
+    Step 3:Multiply a,b and put it in c(c=a*b).<br><br>
+    Step 4:Print c.<br><br>
+    End.<br><br>
+    </i>
+    </p>
+    </div>
+    <div id="divpic" style="display:none">
+      <p>Algorithms</p>
+      <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+      0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+      <i>Division:-<br><br>
+      Start<br><br>
+      Step 1:Declare Data Variable a,b,c.<br><br>
+      Step 2:Take input from user in Variable a,b.<br><br>
+      Step 3:Divide a,b and put it in c(c=a/b).<br><br>
+      Step 4:Print c.<br><br>
+      End.<br><br>
+      </i>
+      </p>
+    </div>
+    <div id="modpic" style="display:none">
+      <p>Algorithms</p>
+      <p style="border-radius:20px;height: 60%;width: 100%; box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+    0 6px 20px 0 rgba(7, 135, 240, 0.37);padding:10px;color:blue;">
+    <i>Modulus:-<br><br>
+    Start<br><br>
+    Step 1:Declare Data Variable a,b,c.<br><br>
+    Step 2:Take input from user in Variable a,b.<br><br>
+    Step 3:Modulo a,b and put it in c(c=a%b).<br><br>
+    Step 4:Print c.<br><br>
+    End.<br><br>
+    </i>
+    </p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div style="display:table;width:100%;">
+  <div style="display: table-row;padding:0;">
+    <div style="display: table-cell;">
+ <p id="head2">Source Code</p>
+    </div>
+    <div style="display: table-cell;">
+ <p id="head3">Output</p>
+ </div>
+  </div>
+  <div style="display: table-row;">
+  <div style="display: table-cell;border-right: 1px solid black;" class="container2">
+      <div id="code" style="display:none;text-align:left;color:rgb(5, 5, 5);">
+        <p class="on" id="a1">package main <i id="i1"
+            style="display:none;border:5px solid orange;border-radius: 20px;padding:8px;color:yellow;background-color:rgb(10, 10, 10)">The
+            package “main” tells the Go compiler that the package should compile as an executable program instead of a
+            shared library</i></p>
+        <p class="on" id="a2">import("fmt") <i id="i2"
+            style="display:none;border:5px solid orange;border-radius: 20px;padding:8px;color:yellow;background-color:rgb(10, 10, 10)">Package
+            fmt implements formatted I/O with functions analogous to C's printf and scanf</i></p>
+        <p class="on" id="a3">func main(){ <i id="i3"
+            style="display:none;border:5px solid orange;border-radius: 20px;padding:8px;color:yellow;background-color:rgb(10, 10, 10)">The
+            main function in the package “main” will be the entry point of our executable program</i></p>
+        <p id="a4">&nbsp&nbspvar a,b,c int</p>
+        <p class="on" id="a5">&nbsp&nbspfmt.Print("Enter The First Number : ")<i id="i4"
+        style="display:none;border:5px solid orange;border-radius: 20px;padding:8px;color:yellow;background-color:rgb(10, 10, 10)" >fmt.Print() is a standard library function to print something as a output on screen.In this, fmt package has transmited Print method which is used to display the output.</i></p>
+        <p class="on" id="a6">&nbsp&nbspfmt.Scan(&a)<i id="i5"
+          style="display:none;border:5px solid orange;border-radius: 20px;padding:8px;color:yellow;background-color:rgb(10, 10, 10)">fmt.Scan() is a standard library function to take input from user.In this, fmt package has transmited Scan method which is used to take the input.</i></p>
+        <p id="a7">&nbsp&nbspfmt.Print("Enter The Second Number : ")</p>
+        <p id="a8">&nbsp&nbspfmt.Scan(&b)</p>
+        <p id="a9">&nbsp&nbsp</p>
+        <p id="a10">&nbsp&nbsp</p>
+        <p id="a11">}</p>
+        <input type="button" value="Prev Instruction" id="btn4" style="display:none;">
+        <input type="button" value="Next Instruction" id="btn1" style="display:none;left:100px;">
+      </div>
+  </div>
+ 
+  <div style="display: table-cell;border-left:1px solid black" class="container3">
+      <table id="tbl" style="display:none;width:100%;">
+        <tr style="height:70px">
+          <td id="r4c1" style="display:none;color:black;">
+            <p>a</p>
+          </td>
+          <td id="r4c2">
+            <div class="hiddenBox" id="b1"></div>
+          </td>
+          <td id="r4c8" style="display:none;color:black;">
+            <p id="m1"></p>
+          </td>
+          <td id="r4c3" style="display:none;color:black;">
+            <p style="transform: translateX(70px);">b</p>
+          </td>
+          <td id="r4c4">
+            <div class="hiddenBox" style="transform: translateX(70px);" id="b2"></div>
+          </td>
+          <td id="r4c9" style="display:none;color:black;">
+            <p style="transform: translateX(70px);" id="m2"></p>
+          </td>
+          <td id="r4c5" style="display:none;color:black;">
+            <p style="transform: translateX(138px);">c</p>
+          </td>
+          <td id="r4c6">
+            <div class="hiddenBox" id="b3" style="transform: translateX(140px);"></div>
+          </td>
+          <td id="r4c10" style="display:none;color:black;">
+            <p style="transform: translateX(140px);" id="m3"></p>
+          </td>
+        </tr>
+        <tr>
+          <td id="r4c7" style="display:none;color:black;padding-top:20px;padding-bottom:20px;">Where a,b,c are variables
+            names and <p id="m11" style="display:inline-block;"></p>,<p id="m22" style="display:inline-block;"></p>,<p
+              id="m33" style="display:inline-block;"></p> are memory locations where values can be stored</td>
+          </td>
+        </tr>
+        <tr style="height:100px">
+          <td id="fn1" style="display:none;">Enter The First Number : </td><td id="r1c1" style="display:none;color:black;"><input type="text" id="first"
+              placeholder="Enter The First Number"></td>
+        </tr>
+        <tr style="height:100px">
+          <td id="ln1" style="display:none;">Enter The Second Number : </td><td id="r2c1" style="display:none;color:black;"><input type="text" id="last"
+              placeholder="Enter The Second Number"></td>
+        </tr>
+        <tr style="height:100px;">
+          <td id="r3c1" style="display:none;color:black;">The Sum Of Numbers Is : </td>
+          <td id="r3c2" style="display:none;color:black;">The Subtraction Of Numbers Is :</td>
+          <td id="r3c3" style="display:none;color:black;">The Multiplication Of Numbers Is :</td>
+          <td id="r3c4" style="display:none;color:black;">The Division Of Numbers Is :</td>
+          <td id="r3c6" style="display:none;color:black;">The Modulus Of Numbers Is :</td>
+          <td id="r3c5" style="color:black;display:inline-block;"></td>
+        </tr>
+          <tr colspan="2">
+          <td style="padding:5px;"><a href="#container5" id="test" style="display:none;padding:10px;border:5px solid rgb(245, 22, 6);width:130px;position:relative;left:41%;"
+              >Program Task</a></td>
+        </tr>
+      </table>
+  </div>
+</div>
+</div>
+  <div id = "container5" style="display:none;width:100%;margin:auto;padding:10px;">
+      <div style="padding:10px;margin:auto;width:100%;position:relative;border:5px solid #CD5C5C;box-shadow: 0 4px 8px 0 rgba(7, 135, 240, 0.37),
+      0 6px 20px 0 rgba(7, 135, 240, 0.37);border-radius: 10px;overflow:auto;">
+          <span id="container11" style="width:100%;display:none;background-color:white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Complete The Blanks using syntax Of Go Programming Language : </p>
+                  package main<br><br>
+                  import(<input type="text" id="a111" class="textField" size="1">)&nbsp&nbsp&nbsp<b id="sh1"></b><br><br>
+                  func <input type="text" id="a22" class="textField" size="1">(){&nbsp&nbsp&nbsp<b id="sh2"></b><br><br>
+                  var a,b,c int<br><br>
+                  a=10<br><br>
+                  b=20<br><br>
+                  c=50<br><br>
+                  c=a*b+c<br><br>
+                  <input type="text" id="a33" class="textField" size="1">.Print("Result : ",c)&nbsp&nbsp&nbsp<b id="sh3"></b><br><br>
+                  }<br><br>
+                  <input type="button" value="Next" class="btn" id="btn11">
+  
+              </form>
+          </span>
+          <span id="container22" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Using syntax of Golang complete the blanks use formulae sum of n natural numbers=n*(n+1)/2 : </p>
+  
+                  package main<br><br>
+                  <input type="text" id="b11" class="textField" size="2">("fmt")&nbsp&nbsp&nbsp<b id="sh4"></b><br><br>
+                  func main(){<br><br>
+                  var a int<br><br>
+                  a=10<br><br>
+                  c=<input type="text" id="b22" class="textField" size="3">&nbsp&nbsp&nbsp<b id="sh5"></b><br><br>
+                  <input type="text" id="b33" class="textField" size="1">.Print("Result : ",c)&nbsp&nbsp&nbsp<b id="sh6"></b><br><br>
+                  }<br><br><input type="button" value="Next" class="btn" id="btn22">
+              </form>
+          </span>
+          <span id="container33" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Complete the blanks using syntax of GO Programming language, where the value of the result is 300.</p>
+  
+                  package main<br><br>
+                  import ("fmt")
+                  func main(){<br><br>
+                  <input type="text" id="c11" class="textField" size="2">a,b,c,d,result int&nbsp&nbsp&nbsp<b id="sh7"></b><br><br>
+                  a=100<br><br>
+                  b=<input type="text" id="c22" class="textField" size="2">&nbsp&nbsp&nbsp<b id="sh8"></b><br><br>
+                  c=25<br><br>
+                  d=4<br><br>
+                  result =a*b+c*d<br><br>
+                  fmt.Print(<input type="text" id="c33" class="textField" size="2">)
+                  }&nbsp&nbsp&nbsp<b id="sh9"></b><br><br>
+                  <input type="button" value="Next" class="btn" id="btn33">
+              </form>
+          </span>
+          <span id="container44" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Compute the output and fill the blanks of the given GO Program </p>
+  
+                  package main<br><br>
+                  import ("fmt")<br><br>
+                  func main(){<br><br>
+                  var i,k,int<br><br>
+                  i=-3<br><br>
+                  <input type="text" id="d11" class="textField" size="2">=i%2&nbsp&nbsp&nbsp<b id="sh10"></b><br><br>
+                  fmt.print(k)<br><br>
+                  }<br><br>
+                  <input type="button" value="Next" class="btn" id="btn44">
+              </form>
+          </span>
+  
+          <span id="container55" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Compute the output and fill the blanks of the given GO Program </p>
+  
+                  package main<br><br>
+                  import ("fmt")<br><br>
+                  func main(){<br><br>
+                  var i,k,l,result int<br><br>
+                  i=3<br><br>
+                  l=i/-2<br><br>
+                  k=i%-2<br><br>
+                  <input type="text" id="e11" class="textField" size="2">=l+k&nbsp&nbsp&nbsp<b id="sh11"></b><br><br>
+                  fmt.print(result)<br><br>
+                  }<br><br>
+                  <input type="button" value="Next" class="btn" id="btn55">
+              </form>
+          </span>
+  
+          <span id="container66" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Compute the output and fill the blanks of the given GO Program </p>
+                  package main<br><br>
+                  import ("fmt")
+                  func main(){<br><br>
+                  var i,result int<br><br>
+                  i=-5<br><br>
+                  <input type="text" id="f11" class="textField" size="2">=i/3&nbsp&nbsp&nbsp<b id="sh12"></b><br><br>
+                  fmt.print(result)<br><br>
+                  }<br><br>
+  
+                  <input type="button" value="Next" class="btn" id="btn66">
+              </form>
+          </span>
+          <span id="container88" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Identify The Errors And Check The Wrong Ones : </p>
+                  <input type="checkbox" id="cb1"> package main&nbsp&nbsp&nbsp<b id="sh13"></b><br><br>
+                  <input type="checkbox" id="cb2" value="e"> import("Fmt")&nbsp&nbsp&nbsp<b id="sh14"></b><br><br>
+                  <input type="checkbox" id="cb3"> func main(){&nbsp&nbsp&nbsp<b id="sh15"></b><br><br>
+                  <input type="checkbox" id="cb4" value="e">Var a,b,c int&nbsp&nbsp&nbsp<b id="sh16"></b><br><br>
+                  <input type="checkbox" id="cb5"> a=10&nbsp&nbsp&nbsp<b id="sh17"></b><br><br>
+                  <input type="checkbox" id="cb6"> b=20&nbsp&nbsp&nbsp<b id="sh18"></b><br><br>
+                  <input type="checkbox" id="cb7"> c=b/a&nbsp&nbsp&nbsp<b id="sh19"></b><br><br>
+                  <input type="checkbox" id="cb8" value="e">Fmt.print("Result",c)&nbsp&nbsp&nbsp<b id="sh20"></b><br><br>
+                  <input type="checkbox" id="cb9"> }&nbsp&nbsp&nbsp<b id="sh21"></b><br><br>
+                  <input type="button" value="Next" class="btn" id="btn88">
+              </form>
+          </span>
+          <span id="container99" style="width:100%;display:none;background-color: white;padding:20px;margin:auto;position:relative;overflow:auto;height:560px;">
+              <form style="margin:auto;">
+                  <p>Identify The Errors And Check The Wrong Ones :</p>
+                  <input type="checkbox" id="cb10"> package main&nbsp&nbsp&nbsp<b id="sh22"></b><br><br>
+                  <input type="checkbox" id="cb11"> import("fmt")&nbsp&nbsp&nbsp<b id="sh23"></b><br><br>
+                  <input type="checkbox" id="cb12" value="e"> func Main(){&nbsp&nbsp&nbsp<b id="sh24"></b><br><br>
+                  <input type="checkbox" id="cb13" value="e"> var int a,b,c,d&nbsp&nbsp&nbsp<b id="sh25"></b><br><br>
+                  <input type="checkbox" id="cb14"> a=10&nbsp&nbsp&nbsp<b id="sh26"></b><br><br>
+                  <input type="checkbox" id="cb15"> b=20&nbsp&nbsp&nbsp<b id="sh27"></b><br><br>
+                  <input type="checkbox" id="cb16"> c=25&nbsp&nbsp&nbsp<b id="sh28"></b><br><br>
+                  <input type="checkbox" id="cb17"> d=a*b+c&nbsp&nbsp&nbsp<b id="sh29"></b><br><br>
+                  <input type="checkbox" id="cb18" value="e">fmt.print(result)&nbsp&nbsp&nbsp<b id="sh30"></b><br><br>
+                  <input type="checkbox" id="cb19"> }&nbsp&nbsp&nbsp<b id="sh31"></b><br><br>
+  
+                  <input type="button" value="Next" class="btn" id="btn99">
+              </form>
+          </span>
+  
+          <span id="container77" style="width:100%;height:100%;display:none;background-color:  #ffffff;padding:20px;margin:auto;position:relative;height:560px;">
+              <div style="position:relative;width:100%;height:100%;margin:auto;background-color: rgb(252, 252, 252);padding:100px 0;">
+                  <form style="position:relative;margin:auto;padding:30px;"><input type="button" value="Result" onclick="cal()" id="resul" style="display:inline-block;position: relative;margin:auto;left:47%;">
+                  <input type="button" value="Reset" onclick="rel()" style="display:none;position: relative;margin:auto;left:47%;" id="res"></form>
+                  <div style="overflow:auto;background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);left:0px;margin:auto;position:relative;height:230px;" id="ans" class="hiddenBox1">
+                    <p id="corr" style="color:green"></p>
+                    <p id="incorr" style="color:red"></p>
+                    <p id="percentage" style="color:rgb(240, 6, 240)"></p>
+                    <p id="feedback"></p>
+                    <form><input type="button" value="Show Answers" id="show" class="btn" style="display:none;position:relative;left:25px;"></form>
+                  </div>
+              </div>
+          </span>
+      </div>
+  </div>
+  <script src="js\arith_sim.js"></script>
+</body>
+</html>
